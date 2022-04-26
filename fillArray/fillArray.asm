@@ -9,8 +9,7 @@ _start:	mov	cl, 255
 	mov	ch, 255
 	mov	edi, array
 	mov	ebx, array
-	mov	al, '&'
-repeat:	mov	[edi], al
+repeat:	mov	[edi], byte '&' 
 	inc	edi
 	dec	cl
 	jnz	repeat
