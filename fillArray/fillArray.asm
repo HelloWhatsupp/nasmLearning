@@ -13,8 +13,11 @@ repeat:	mov	[edi], byte '&'
 	inc	edi
 	dec	cl
 	jnz	repeat
-	PUTCHAR	[ebx]
+	jmp	print
+print:	PUTCHAR	[ebx]
 	inc	ebx
 	dec	ch
+	jnz print
+	PUTCHAR 10
 	FINISH
 	
