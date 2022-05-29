@@ -11,7 +11,7 @@ global	_start
 %define arg9 dword [val + 8]
 %define arg10 dword [val + 9]
 
-%define adrOfParam [ebp + ecx]
+%define adrOfParam ebp + ecx
 
 %macro	pcall10	11 
 	push	%11
@@ -49,7 +49,7 @@ sum:
 	xor	ecx, ecx
 	mov	ecx, 8
 .again:
-	mov	bl,  adrOfParam			; read value from stack
+	mov	bl,  [adrOfParam]		; read value from stack
 	add	eax, ebx			; sum value with result
 	add	ecx, 4				; increment on dword value
 	cmp	ecx, 44
