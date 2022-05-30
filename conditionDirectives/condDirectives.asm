@@ -5,14 +5,18 @@ global _start
 
 %assign caseDiff 65
 %assign case 97
+%define startMsg 'Will be used lowercase print'
 
 %elifdef UPPERCASE_PRINT
 
 %assign caseDiff 97 
 %assign case 65
+%define startMsg 'Will be used uppercase print'
 
 %else
-PRINT	'will be used standart print'
+
+%define startMsg 'Will be used standart print'
+
 %endif
 
 testStr	db	'Hello World', 10
@@ -22,6 +26,9 @@ section .text
 _start:
 	xor	al, al
 	mov	esi, testStr
+	PRINT	startMsg
+	PUTCHAR 10
+
 again:
 	mov	al, [esi]	
 	inc	esi
