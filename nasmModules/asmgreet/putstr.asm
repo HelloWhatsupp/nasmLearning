@@ -12,7 +12,6 @@ putstr:
 	push	dword [ebp + 8]		
 	call	strlen			; call strlen with param (return len into eax)
 	add	esp, 4			; remove param from stack
-
 	kernel	4, 1, [ebp + 8], eax	; use macro for system call
 	mov	esp, ebp		; usual return from subprogram
 	pop	ebp

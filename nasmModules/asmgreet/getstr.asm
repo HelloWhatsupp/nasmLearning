@@ -30,4 +30,3 @@ getstr:
 	mov	esp, ebp
 	pop	ebp
 	ret
-		
